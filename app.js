@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -27,6 +29,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -37,5 +40,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+mongoose.connect(`mongodb+srv://avicena-dev:${process.env.DATABASE_PASSWORD}@avicena-dev.ft7wwp4.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`)
+  .then(() => {
+    console.log("Successfully, connected to database")
+  }).catch((err) => {
+    console.log("Error connecting to database: " + err.message)
+  });
+
 
 module.exports = app;
