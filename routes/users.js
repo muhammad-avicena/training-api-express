@@ -1,9 +1,33 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+var User = require("../models/userModels");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+/* GET List User. */
+router.get("/", async function (req, res, next) {
+  try {
+    const user = await User.find({});
+    res.status(200).json({
+      message: "List of all users",
+      users: user,
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ message: err.message });
+  }
+});
+
+/* POST Create User. */
+router.post("/", async function (req, res, next) {
+  try {
+    const user = await User.create(req.body);
+    res.status(200).json({
+      message: "Successfully created a user",
+      user: user,
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ message: err.message });
+  }
 });
 
 module.exports = router;
