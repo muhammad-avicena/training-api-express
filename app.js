@@ -41,7 +41,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-mongoose.connect(`mongodb+srv://avicena-dev:${process.env.DATABASE_PASSWORD}@avicena-dev.ft7wwp4.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${process.env.DATABASE_NAME}:${process.env.DATABASE_PASSWORD}@avicena-dev.ft7wwp4.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`)
   .then(() => {
     console.log("Successfully, connected to database")
   }).catch((err) => {
