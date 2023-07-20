@@ -16,6 +16,22 @@ router.get("/", async function (req, res, next) {
   }
 });
 
+/* GET List Product by ID. */
+router.get('/:id', async function(req, res, next) {
+  try {
+    const {id} = req.params;
+    const user = await User.findById(id);
+    res.status(200).json({
+      message: 'The user has been found',
+      user: user
+    })
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({message: err.message});
+  }
+});
+
+
 /* POST Create User. */
 router.post("/", async function (req, res, next) {
   try {

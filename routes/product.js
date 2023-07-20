@@ -16,6 +16,21 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+/* GET List Product by ID. */
+router.get('/:id', async function(req, res, next) {
+  try {
+    const {id} = req.params;
+    const product = await Product.findById(id);
+    res.status(200).json({
+      message: 'The product has been found',
+      products: product
+    })
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({message: err.message});
+  }
+});
+
 /* POST Create Product. */
 router.post('/', async function (req, res, next) {
   try {
