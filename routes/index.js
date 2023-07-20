@@ -12,6 +12,7 @@ const routes = [
   { path: '/api/products', method: 'POST', description: 'Create a product' },
   { path: '/api/products/:id', method: 'GET', description: 'Get a product by ID' },
   { path: '/api/products/:id', method: 'PUT', description: 'Update a product by ID' },
+  { path: '/api/products/:id', method: 'DEL', description: 'Delete a product by ID' },
 ];
 
 // GET home page.
