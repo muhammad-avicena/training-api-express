@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1 Training API using Express.js integrated with MongoDB
-  h2 Developed by M.A.R
+  h1 API Documentation
+  h2 Training API backend using Node.js and Express.js integrated with MongoDB
+  h3 Developed by M.A.R
+  ul
+    h3 Below are the list of an Available API :  
+      br 
+      br
+      each route in routes
+        li
+          strong= route.method
+          | : #{route.path}
+          br
+          |  Description: #{route.description}
+          br
+          hr
