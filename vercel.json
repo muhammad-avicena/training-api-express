@@ -1,10 +1,15 @@
 {
     "version": 2,
-    "name": "api-express-avicena",
     "builds": [
-       { "src": "app.js", "use": "@vercel/node" }
+        {
+            "src": "bin/www",
+            "use": "@now/node"
+        }
     ],
     "routes": [
-       { "src": "/(.*)", "dest": "/app.js" }
+        {
+            "src": "/(.*)",
+            "dest": "bin/www"
+        }
     ]
- }
+}
