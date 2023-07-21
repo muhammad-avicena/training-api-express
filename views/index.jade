@@ -1,18 +1,24 @@
 extends layout
 
 block content
-  h1 API Documentation
-  h2 Training API backend using Node.js and Express.js integrated with MongoDB
-  h3 Developed by M.A.R
+  .title
+    h1 API Documentation
+    h2 Training API backend using Node.js and Express.js integrated with MongoDB
+    h3 Developed by M.A.R
   ul
-    h3 Below are the list of an available API :  
+    .api-container
+      h3 Example usage of available API:
+      p.example-api= 'GET https://api-express-avicena.cylic.app/api/user' 
       br 
       br
       each route in routes
-        li
+        p
           strong= route.method
-          | : #{route.path}
+          | : 
+          span #{route.path}
           br
           |  Description: #{route.description}
           br
           hr
+
+  

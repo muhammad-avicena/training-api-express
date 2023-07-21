@@ -16,6 +16,12 @@ body {
   color: var(--color-third);
 }
 
+.title {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
 h1, h2 {
   background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
   -webkit-background-clip: text;
@@ -28,7 +34,24 @@ strong {
   color: var(--color-fourth)
 }
 
-li {
+p {
   letter-spacing: 0.1em;
   color: var(--color-third)
+}
+
+.example-api {
+  background-color: #F8F9FA;
+  padding: 10px;
+  border: 2px solid var(--color-fourth);
+  color: black;
+}
+
+.api-container {
+  margin-bottom: 30px;
+  border: 2px solid #007BFF;
+  padding: 10px;
+}
+
+span {
+  color: greenyellow;
 }
