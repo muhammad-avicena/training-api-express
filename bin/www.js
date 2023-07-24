@@ -13,7 +13,7 @@ var http = require('http');
  */
 
 var port = normalizePort(process.env.PORT || '5001');
-console.log(`Listening on https://localhost:${port}`);
+console.log(`Listening on http://localhost:${port}`);
 app.set('port', port);
 /**
  * Create HTTP server.
